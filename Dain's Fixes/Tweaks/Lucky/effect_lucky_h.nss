@@ -14,12 +14,14 @@ int Lucky_IsEffectValid(effect ef) {
 }
 
 void Lucky_HandleApplyEffect(effect ef, object oTarget = OBJECT_SELF) {
+    SetIsCurrentEffectValid();
+
     if (Lucky_IsEffectValid(ef)) {
         float fPower = GetEffectFloat(ef, 0);
         Lucky_UpdateProps(fPower, oTarget);
     }
 
-    SetIsCurrentEffectValid();
+    
 }
 
 void Lucky_HandleRemoveEffect(effect ef, object oTarget = OBJECT_SELF) {
